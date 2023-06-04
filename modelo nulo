@@ -1,0 +1,89 @@
+##intercepto aleatorio con media fija entre grupos
+nulo1 <- lmer(PGP ~ 1 + (1|PROGRAMA), data = DATA_FINAL)    #EL COEFICIENTE DE ICC ES  IGUAL A 0.288
+summary(nulo1)
+coef(nulo1)  ##interceptos
+confint(nulo1)   #intervalos de confianza
+ranef(nulo1)         #extrae los efectos aleatorios
+data.frame(fixef(nulo1))   
+
+nulo2 <- lmer(RC ~ 1 + (1|PROGRAMA), data = DATA_FINAL)    #EL COEFICIENTE DE ICC ES  IGUAL A 0.302
+summary(nulo2)
+coef(nulo2)  ##interceptos
+confint(nulo2)   #intervalos de confianza
+ranef(nulo2)         #extrae los efectos aleatorios
+data.frame(fixef(nulo2))    #extrae los efectos fijos
+
+
+nulo3 <- lmer(LC ~ 1 + (1|PROGRAMA), data = DATA_FINAL)    #EL COEFICIENTE DE ICC  ES  IGUAL A 0.208
+summary(nulo3)
+coef(nulo3)  ##interceptos
+confint(nulo3)   #intervalos de confianza
+ranef(nulo3)         #extrae los efectos aleatorios
+data.frame(fixef(nulo3))    #extrae los efectos fijos
+
+
+nulo4 <- lmer(CC ~ 1 + (1|PROGRAMA), data = DATA_FINAL)  #EL COEFICIENTE DE ICC  IGUAL A 0.204
+summary(nulo4)
+coef(nulo4)  ##interceptos
+confint(nulo4)   #intervalos de confianza
+ranef(nulo4)         #extrae los efectos aleatorios
+data.frame(fixef(nulo4))    #extrae los efectos fijos
+
+
+nulo5 <- lmer(IN ~ 1 + (1|PROGRAMA), data = DATA_FINAL)  #EL COEFICIENTE DE ICC  IGUAL A 0.302
+summary(nulo5)
+coef(nulo5)  ##interceptos
+confint(nulo5)   #intervalos de confianza
+ranef(nulo5)         #extrae los efectos aleatorios
+data.frame(fixef(nulo5))    #extrae los efectos fijos
+
+
+nulo6 <- lmer(CE ~ 1 + (1|PROGRAMA), data = DATA_FINAL)  #EL COEFICIENTE DE ICC  IGUAL A 0.101
+summary(nulo6)
+coef(nulo6)  ##interceptos
+confint(nulo6)   #intervalos de confianza
+ranef(nulo6)         #extrae los efectos aleatorios
+data.frame(fixef(nulo6))    #extrae los efectos fijos
+
+
+#MODELO  UNA SOLA COVARIABLE CON MEJOR
+MODELO1_6 <- lmer(RC ~ MAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO1_7 <- lmer(RC ~ NAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO1_8 <- lmer(RC ~ SOC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO1_9 <- lmer(RC ~ ING +(1|PROGRAMA), data = DATA_FINAL)
+summary(MODELO1_6)
+
+
+
+MODELO3.6 <- lmer(LC ~ LEC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO36 <- lmer(LC ~ MAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO37 <- lmer(LC ~ NAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO38 <- lmer(LC ~ SOC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO39 <- lmer(LC ~ ING +(1|PROGRAMA), data = DATA_FINAL)
+summary(MODELO3.6)
+
+MODELO4.6 <- lmer(CC ~ LEC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO46 <- lmer(CC ~ MAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO47 <- lmer(CC ~ NAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO48 <- lmer(CC ~ SOC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO49 <- lmer(CC ~ ING +(1|PROGRAMA), data = DATA_FINAL)
+summary(MODELO48)
+
+
+
+MODELO5.6 <- lmer(IN ~ LEC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO56 <- lmer(IN~ MAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO57 <- lmer(IN ~ NAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO58 <- lmer(IN ~ SOC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO59 <- lmer(IN ~ ING +(1|PROGRAMA), data = DATA_FINAL)
+summary(MODELO59)
+
+MODELO66 <- lmer(CE ~ LEC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO67 <- lmer(CE ~ MAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO68 <- lmer(CE ~ NAT +(1|PROGRAMA), data = DATA_FINAL)
+MODELO69 <- lmer(CE ~ SOC +(1|PROGRAMA), data = DATA_FINAL)
+MODELO70 <- lmer(CE ~ ING +(1|PROGRAMA), data = DATA_FINAL)
+resumen(MODELo70)
+
+
+
