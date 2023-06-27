@@ -32,6 +32,7 @@ MODELO1.2 <- lmer(PGP ~ ESTRATO +  MAT + NAT + SOC + ING + (1|PROGRAMA), data = 
 MODELO1.2.10 <- lmer(PGP ~ ESTRATO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO1.2 <- lmer(PGP ~ ESTRATO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO1.2 <- lmer(PGP ~ ESTRATO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORRTA
+
 summary(MODELO1.2) 
 
 
@@ -106,6 +107,7 @@ MODELO1.6<- lmer(PGP ~ HORAS_TRABAJO +  MAT + NAT + SOC + ING + (1|PROGRAMA), da
 MODELO1.6<- lmer(PGP ~ HORAS_TRABAJO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO1.6 <- lmer(PGP ~ HORAS_TRABAJO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NOAPORTA
 MODELO1.6 <- lmer(PGP ~ HORAS_TRABAJO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
+
 summary(MODELO1.6) 
 
 
@@ -124,6 +126,7 @@ MODELO1.7<- lmer(PGP ~ GENERO +  MAT + NAT + SOC + ING + (1|PROGRAMA), data = DA
 MODELO1.7 <- lmer(PGP ~ GENERO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO1.7.5 <- lmer(PGP ~ GENERO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#EL DE MEJOR AJUSTE ENTRE ESTOS
 MODELO1.7.6 <- lmer(PGP ~ GENERO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO1.7) 
 
 #############33#razonamiento cuantitativo###########################
@@ -254,6 +257,7 @@ MODELO2.7 <- lmer(RC ~ GENERO +  MAT + NAT + SOC + ING + (1|PROGRAMA), data = DA
 MODELO2.7.12 <- lmer(RC ~ GENERO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO2.7.13 <- lmer(RC ~ GENERO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
 MODELO2.7.14 <- lmer(RC ~ GENERO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO2.7) 
 
 #################lectura critica################
@@ -273,6 +277,7 @@ MODELO3.1 <- lmer(LC ~ indice +  MAT + NAT + SOC + ING + (1|PROGRAMA), data = DA
 MODELO3.1 <- lmer(LC ~ indice +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO3.1 <- lmer(LC ~ indice +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO3.1 <- lmer(LC ~ indice + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORRTA
+
 summary(MODELO3.1)
 
 
@@ -310,6 +315,7 @@ MODELO3.3.11<- lmer(LC ~ EDUCA_MADRE +  MAT + NAT + SOC + ING + (1|PROGRAMA), da
 MODELO3.3.12 <- lmer(LC ~ EDUCA_MADRE +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO3.3.13 <- lmer(LC ~ EDUCA_MADRE +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
 MODELO3.3.14 <- lmer(LC ~ EDUCA_MADRE + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO3.3.11)  
 
 
@@ -420,6 +426,7 @@ MODELO4.2<- lmer(CC ~ ESTRATO +  MAT + NAT + SOC + ING + (1|PROGRAMA), data = DA
 MODELO4.2.11 <- lmer(CC ~ ESTRATO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO4.2.12 <- lmer(CC ~ ESTRATO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#MEJOR MODELO ENTRE ESTOS
 MODELO4.2.13 <- lmer(CC ~ ESTRATO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO4.2.12) 
 
 MODELO4.3<- lmer(CC ~  EDUCA_MADRE + LEC + MAT + NAT + SOC + ING +(1|PROGRAMA), data = DATA_FINAL)#NO APORT
@@ -474,6 +481,7 @@ MODELO4.5 <- lmer(CC ~ MATRICULA +  MAT + NAT + SOC + ING + (1|PROGRAMA), data =
 MODELO4.5.7<- lmer(CC ~ MATRICULA +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO4.5.8 <- lmer(CC ~ MATRICULA +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL) #EL MEJOR MODELO QUE SE AJUSTA ENTRE STOS
 MODELO4.5.9<- lmer(CC ~ MATRICULA + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO4.5) 
 
 MODELO4.6<- lmer(CC ~ HORAS_TRABAJO + LEC + MAT + NAT + SOC + ING +(1|PROGRAMA), data = DATA_FINAL ) #NO APORTA
@@ -513,7 +521,6 @@ MODELO4.7.6 <- lmer(CC ~ GENERO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL) #
 summary(MODELO4.7)
 
 #############inglés#####################
-
 
 MODELO5.1 <- lmer(IN ~ indice + LEC + MAT + NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO5.1.2 <- lmer(IN ~ indice + LEC +  (1|PROGRAMA), data = DATA_FINAL)
@@ -585,6 +592,7 @@ MODELO5.4 <- lmer(IN ~ EDUCA_PADRE +  MAT + NAT + SOC + ING + (1|PROGRAMA), data
 MODELO5.4.10 <- lmer(IN ~ EDUCA_PADRE +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL) 
 MODELO5.4 <- lmer(IN ~ EDUCA_PADRE +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO5.4 <- lmer(IN ~ EDUCA_PADRE + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORRTA
+
 summary(MODELO5.4) 
 
 
@@ -716,6 +724,7 @@ MODELO6.4 <- lmer(CE ~ EDUCA_PADRE +  MAT + NAT + SOC + ING + (1|PROGRAMA), data
 MODELO6.4 <- lmer(CE ~ EDUCA_PADRE +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL) #no aporta
 MODELO6.4 <- lmer(CE ~ EDUCA_PADRE +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO6.4 <- lmer(CE ~ EDUCA_PADRE + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORRTA
+
 summary(MODELO6.4)
 
 
@@ -734,6 +743,7 @@ MODELO6.5 <- lmer(CE ~ MATRICULA +  MAT + NAT + SOC + ING + (1|PROGRAMA), data =
 MODELO6.5.9<- lmer(CE ~ MATRICULA +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)
 MODELO6.5.10 <- lmer(CE ~ MATRICULA +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL) #ES EL QUE MEJOR APORTA
 MODELO6.5.11<- lmer(CE ~ MATRICULA + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)
+
 summary(MODELO6.5.2) 
 
 
@@ -752,6 +762,7 @@ MODELO6.6<- lmer(CE~ HORAS_TRABAJO +  MAT + NAT + SOC + ING + (1|PROGRAMA), data
 MODELO6.6<- lmer(CE ~ HORAS_TRABAJO +  NAT + SOC +  (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO6.6 <- lmer(CE ~ HORAS_TRABAJO +  NAT + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
 MODELO6.6 <- lmer(CE ~ HORAS_TRABAJO + SOC + ING + (1|PROGRAMA), data = DATA_FINAL)#NO APORTA
+
 summary(MODELO6.6) 
 
 MODELO6.7 <- lmer(CE ~ GENERO + LEC + MAT + NAT + SOC + ING +(1|PROGRAMA), data = DATA_FINAL )#NO APORTA
