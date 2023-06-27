@@ -1,0 +1,181 @@
+########CALCULO DEL VALOR AGREGADO###########
+
+#el valor estimado o esperado(procedimientos realizado) es el residuo del segundo nivel- el valor obtenido del puntaje saber pro
+#ES IGUAL AL VALOR AGREGADO
+DATA_FINAL$VAPGP <- fitted(MODEL0)-DATA_FINAL$PGP
+
+###VALOR AGREGADO PARA RAZONAMIENTO CUANTITATIVO
+
+DATA_FINAL$VARC <-  fitted(MODEL1)-DATA_FINAL$RC
+R2 <- rescale(DATA_FINAL$VARC ,mean= 150, sd =30)
+DATA_FINAL$VARC_E <-R2[,1]
+head(DATA_FINAL)
+
+aggregate(VARC_E ~ PROGRAMA, data = DATA_FINAL, FUN = mean)
+
+RES2 <- fitted(MODEL1)
+E2 <- rescale(RES2 ,mean= 150, sd =30)
+DATA_FINAL$E_2 <-E2[,1]
+
+RES_2 <- DATA_FINAL$RC
+O2 <- rescale(RES_2 ,mean= 150, sd =30)
+DATA_FINAL$O_2 <-O2[,1]
+head(DATA_FINAL)
+
+## VALOR AGREGADO LECTURA CRITICA
+
+DATA_FINAL$VALC <-  fitted(MODEL2)-DATA_FINAL$LC
+R3 <- rescale(DATA_FINAL$VALC ,mean= 150, sd =30)
+DATA_FINAL$VALC_E <-R3[,1]
+head(DATA_FINAL)
+
+aggregate(VALC_E ~ PROGRAMA, data = DATA_FINAL, FUN = mean)
+
+RES3 <- fitted(MODEL2)
+E3 <- rescale(RES3 ,mean= 150, sd =30)
+DATA_FINAL$E_3 <-E3[,1]
+
+RES_3 <- DATA_FINAL$LC
+O3 <- rescale(RES_3 ,mean= 150, sd =30)
+DATA_FINAL$O_3 <-O3[,1]
+head(DATA_FINAL)
+
+ C3 <- ggplot(data = DATA_FINAL, 
+       aes(x=E_3, y= O_3)) +
+  geom_point(aes(color =PROGRAMA), alpha=0.7)+
+  geom_smooth(method = "lm")+
+  theme(plot.caption = element_text(hjust = 0.5))+ 
+  theme(legend.position="none") +
+  labs(x= "Valor estimado", y= "Saber Pro ", title = "Lectura crítica ",
+       caption = "")
+
+## VALOR AGREGADO COMPETENCIA CIUDADANA
+
+DATA_FINAL$VACC <-  fitted(MODEL3)-DATA_FINAL$CC
+R4 <- rescale(DATA_FINAL$VACC ,mean= 150, sd =30)
+DATA_FINAL$VACC_E <-R4[,1]
+head(DATA_FINAL)
+
+aggregate(VACC_E ~ PROGRAMA, data = DATA_FINAL, FUN = mean)
+
+
+ggplot(data = DATA_FINAL, 
+       aes(x=reorder(PROGRAMA, desc(VACC_E)), y=VACC_E, fill=FACULTAD)) +
+  geom_boxplot(alpha=0.7)+
+  theme(legend.position="none") +
+  labs(x= " ", y= "Valor agregado ", title = " ",
+       caption = "")+
+  theme(legend.position="bottom",
+        plot.title=element_text(hjust=0.5)
+  )+
+  scale_color_brewer(palette = 'Paired') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  scale_x_discrete("", labels = c("Lic. Literatura y Lengua Castellana"= "Lic. Lengua Castellana", "Lic. Lenguas Extranjeras Con Énfasis En Inglés"="Lic. Lengua Extranjera"  ))+
+  stat_summary(fun=mean, geom="point", color="red")
+
+
+RES4 <- fitted(MODEL3)
+E4 <- rescale(RES4 ,mean= 150, sd =30)
+DATA_FINAL$E_4 <-E4[,1]
+
+RES_4<- DATA_FINAL$CC
+O4 <- rescale(RES_4 ,mean= 150, sd =30)
+DATA_FINAL$O_4 <-O4[,1]
+head(DATA_FINAL)
+
+C4 <- ggplot(data = DATA_FINAL, 
+       aes(x=E_4, y= O_4)) +
+  geom_point(aes(color =PROGRAMA), alpha=0.7)+
+  geom_smooth(method = "lm")+
+  theme(plot.caption = element_text(hjust = 0.5))+ 
+  theme(legend.position="none") +
+  labs(x= "Valor estimado ", y= "Saber Pro", title = "Compentencia ciudadana ",
+       caption = "")
+
+
+## VALOR AGREGADO INGLES
+
+DATA_FINAL$VAIN <-  fitted(MODEL4)-DATA_FINAL$IN
+R5 <- rescale(DATA_FINAL$VAIN ,mean= 150, sd =30)
+DATA_FINAL$VAIN_E <-R5[,1]
+head(DATA_FINAL)
+
+aggregate(VAIN_E ~ PROGRAMA, data = DATA_FINAL, FUN = mean)
+
+ggplot(data = DATA_FINAL, 
+       aes(x=reorder(PROGRAMA, desc(VAIN_E)), y=VAIN_E, fill=FACULTAD)) +
+  geom_boxplot(alpha=0.7)+
+  theme(legend.position="none") +
+  labs(x= " ", y= "Valor agregado ", title = " ",
+       caption = "")+
+  theme(legend.position="bottom",
+        plot.title=element_text(hjust=0.5)
+  )+
+  scale_color_brewer(palette = 'Paired') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  scale_x_discrete("", labels = c("Lic. Literatura y Lengua Castellana"= "Lic. Lengua Castellana", "Lic. Lenguas Extranjeras Con Énfasis En Inglés"="Lic. Lengua Extranjera"  ))+
+  stat_summary(fun=mean, geom="point", color="red")
+
+
+RES5 <- fitted(MODEL4)
+E5 <- rescale(RES5 ,mean= 150, sd =30)
+DATA_FINAL$E_5<-E5[,1]
+
+RES_5 <- DATA_FINAL$IN
+O5 <- rescale(RES_5 ,mean= 150, sd =30)
+DATA_FINAL$O_5 <-O5[,1]
+head(DATA_FINAL)
+
+C5 <- ggplot(data = DATA_FINAL, 
+       aes(x=E_5, y= O_5)) +
+  geom_point(aes(color =PROGRAMA), alpha=0.7)+
+  geom_smooth(method = "lm")+
+  theme(plot.caption = element_text(hjust = 0.5))+ 
+  theme(legend.position="none") +
+  labs(x= "Valor estimado", y= "Saber Pro ", title = "Inglés ",
+       caption = "")
+
+
+## VALOR AGREGADO COMUNICACION ESCRITA
+
+DATA_FINAL$VACE <-  fitted(MODEL5)-DATA_FINAL$CE
+R6 <- rescale(DATA_FINAL$VACE ,mean= 150, sd =30)
+DATA_FINAL$VACE_E <-R6[,1]
+head(DATA_FINAL)
+
+aggregate(VACE_E ~ PROGRAMA, data = DATA_FINAL, FUN = mean)
+
+ggplot(data = DATA_FINAL, 
+       aes(x=reorder(PROGRAMA, desc(VACE_E)), y=VACE_E, fill=FACULTAD)) +
+  geom_boxplot(alpha=0.7)+
+  theme(legend.position="none") +
+  labs(x= " ", y= "Valor agregado ", title = " ",
+       caption = "")+
+  theme(legend.position="bottom",
+        plot.title=element_text(hjust=0.5)
+  )+
+  scale_color_brewer(palette = 'Paired') +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  scale_x_discrete("", labels = c("Lic. Literatura y Lengua Castellana"= "Lic. Lengua Castellana", "Lic. Lenguas Extranjeras Con Énfasis En Inglés"="Lic. Lengua Extranjera"  ))+
+  stat_summary(fun=mean, geom="point", color="red")
+
+
+RES6 <- fitted(MODEL5)
+E6 <- rescale(RES6 ,mean= 150, sd =30)
+DATA_FINAL$E_6 <-E6[,1]
+
+RES_6 <- DATA_FINAL$CE
+O6 <- rescale(RES_6 ,mean= 150, sd =30)
+DATA_FINAL$O_6 <-O6[,1]
+head(DATA_FINAL)
+
+C6 <- ggplot(data = DATA_FINAL, 
+       aes(x=E_6, y= O_6)) +
+  geom_point(aes(color =PROGRAMA), alpha=0.7)+
+  geom_smooth(method = "lm")+
+  theme(plot.caption = element_text(hjust = 0.5))+ 
+  theme(legend.position="none") +
+  labs(x= "Valor estimado", y= "Saber Pro", title = "Comunicación escrita ",
+       caption = "")
+
+
